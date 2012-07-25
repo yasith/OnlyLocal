@@ -1,9 +1,16 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#99CC00" >
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background= "#99CC00" >
-    
+    android:background="#99CC00" >
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -13,42 +20,40 @@
         android:layout_marginTop="43dp"
         android:text="@string/loc"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="75px" />
+        android:textSize="75dp" />
 
-    <EditText
-        android:id="@+id/editText1"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_alignRight="@+id/textView1"
         android:layout_below="@+id/textView1"
-        android:layout_marginTop="55dp"
-        android:ems="10"
-        android:inputType="textPostalAddress"
-        android:textSize="50px" >
-
-        <requestFocus />
-    </EditText>
-
-    <TextView
-        android:id="@+id/TextView02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/change"
+        android:layout_marginTop="93dp"
+        android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="40px" />
+        android:textSize="65dp" />
 
-    <TextView
-        android:id="@+id/TextView01"
+    <Button
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/TextView02"
-        android:layout_alignLeft="@+id/TextView02"
-        android:layout_marginBottom="52dp"
-        android:text="@string/search"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="40px" />
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:textSize="35dp"
+        android:onClick="updateLocation"
+        android:text="@string/change" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:textSize="40dp"
+        android:layout_marginTop="169dp"
+        android:onClick="openActivity"
+        android:text="@string/search" />
 
 </RelativeLayout>
+</ScrollView>
