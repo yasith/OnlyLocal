@@ -24,7 +24,7 @@
         </activity>
         <activity
             android:name=".SearchActivity"
-            android:label="@string/title_activity_search" >
+            android:label="@string/searchTitle" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.only.local.StartActivity" />

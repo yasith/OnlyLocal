@@ -1,22 +1,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp">
+        android:layout_height="match_parent">
 
     <ListView android:id="@android:id/list"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="#00FF00"
+              android:background="#99CC00"
               android:layout_weight="1"
               android:drawSelectorOnTop="false"/>
 
     <!--  This is what you see when there's no data -->
-    <TextView android:id="@android:id/empty"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="#FF0000"
-              android:text="No data"/>
+
+    <TextView
+        android:id="@android:id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99CC00"
+        android:text="We're sorry, but there are no Farmer&apos;s Markets within your area."
+        android:textSize="50dp" />
+
 </LinearLayout>
 

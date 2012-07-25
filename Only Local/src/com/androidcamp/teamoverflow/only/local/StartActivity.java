@@ -26,7 +26,7 @@ import android.widget.TextView;
 public class StartActivity extends Activity {
 
 	private static final String TAG = "ONLY_LOCAL";
-	
+	protected String textLoc = " ";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class StartActivity extends Activity {
         try {
 			List<Address> addresses = geoc.getFromLocation(latitude, longitude, 1);
 			Address addy = addresses.get(0);
-			String textLoc = addy.getLocality();
+			textLoc = addy.getLocality();
 			
 			Log.d(TAG, textLoc);
 			
@@ -87,11 +87,11 @@ public class StartActivity extends Activity {
    e.printStackTrace();
    }
         if (addresses.size() > 0) {
-        position = addresses.get(0).getLocality();
+        textLoc = addresses.get(0).getLocality();
         }
        
        
-        textView.setText(position);
+        textView.setText(textLoc);
        
        }
     @Override
