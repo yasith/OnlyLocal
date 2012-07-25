@@ -1,3 +1,14 @@
-Only\ Local/bin/*
+.idea/
+gen/
+bin/
+local.properties
+*.dex
 *.class
+*.apk
+*.ap_
+*.iml
+*.swp
+.settings/
+out/
+.DS_Store
 
