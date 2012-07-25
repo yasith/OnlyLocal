@@ -25,6 +25,9 @@ import android.widget.TextView;
 
 public class StartActivity extends Activity {
 
+	private static final String TAG = "ONLY_LOCAL";
+	
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,35 +45,13 @@ public class StartActivity extends Activity {
 			List<Address> addresses = geoc.getFromLocation(latitude, longitude, 1);
 			Address addy = addresses.get(0);
 			String textLoc = addy.getLocality();
-			Log.e("LOCATION", textLoc);
+			
+			Log.d(TAG, textLoc);
+			
 			textView.setText(textLoc);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        
-        
-        //Update Location button and onClick()
-        Button locButton = (Button) findViewById(R.id.button1);
-        locButton.setOnClickListener(new View.OnClickListener() {
-			
-        	//on click
-			@Override
-			public void onClick(View v) {
-				updateLocation(v);
-			}
-		});
-        
-        //Search button and onClick()
-        Button searchButton = (Button) findViewById(R.id.button2);
-        locButton.setOnClickListener(new View.OnClickListener() {
-			
-        	//on click
-			@Override
-			public void onClick(View v) {
-				
-			}
-		});   
     }
     
     public void openActivity(View view){
@@ -79,7 +60,7 @@ public class StartActivity extends Activity {
     }
     public void updateLocation(View view) {
     	
-    	Log.e("UPDATE", "Loc is being updated");
+    	Log.d(TAG, "Location is being updated");
         
         TextView textView = (TextView) findViewById(R.id.textView2);
        
