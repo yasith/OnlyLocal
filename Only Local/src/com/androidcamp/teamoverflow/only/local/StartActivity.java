@@ -91,7 +91,7 @@ public class StartActivity extends Activity {
         }
        
        
-        textView.setText(position);
+        textView.setText(textLoc);
        
        }
     @Override
