@@ -3,6 +3,7 @@ package com.androidcamp.teamoverflow.only.local;
 import com.androidcamp.teamoverflow.only.local.R;
 
 import android.os.Bundle;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,7 +11,8 @@ import android.support.v4.app.NavUtils;
 
 public class SearchActivity extends Activity {
 
-    @Override
+   
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
