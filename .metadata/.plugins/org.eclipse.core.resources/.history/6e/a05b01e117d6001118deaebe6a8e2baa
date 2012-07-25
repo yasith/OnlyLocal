@@ -15,10 +15,10 @@ public class StartActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         LocationManager locman = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        Location location = locman.getLastKnownLocation("GPS_PROVIDER");
+        Location location = locman.getLastKnownLocation("GPS");
         double latitude = location.getLatitude();
         double longitude = location.getLongitude();
-       // Log.d("LOCATION TEST", latitude + " " + longitude);
+        Log.d("LOCATION TEST", latitude + " " + longitude);
         
         
     }
