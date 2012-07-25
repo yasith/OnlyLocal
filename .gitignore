@@ -11,4 +11,5 @@ local.properties
 .settings/
 out/
 .DS_Store
+.metadata/
 
