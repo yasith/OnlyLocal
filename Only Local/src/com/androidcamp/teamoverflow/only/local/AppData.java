@@ -10,8 +10,6 @@ public class AppData {
 	private double mLongitude;
 	private double mLatitude;
 	
-	
-	
 	/**
 	 * Returns the AppData instance
 	 */
