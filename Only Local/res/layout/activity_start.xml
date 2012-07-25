@@ -53,7 +53,7 @@
         android:textSize="40dp"
         android:layout_marginTop="169dp"
         android:onClick="openActivity"
-        android:text="@string/search" />
+        android:text="@string/search"/>
 
 </RelativeLayout>
 </ScrollView>
