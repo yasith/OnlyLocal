@@ -1,0 +1,13 @@
+!SESSION 2012-07-24 20:48:58.207 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_30
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.mobile.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.mobile.product
+
+!ENTRY org.eclipse.mylyn.tasks.ui 4 0 2012-07-24 20:49:39.548
+!MESSAGE Could not load repository template extension contributed by org.eclipse.mylyn.bugzilla.ide with connectorKind bugzilla
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-07-24 20:51:37.069
+!MESSAGE Failed to load properties file for project 'Only Local'
