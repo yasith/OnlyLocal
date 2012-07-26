@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#99CC00"
-        android:text="We're sorry, but there are no Farmer&apos;s Markets within your area."
+        android:text="@string/searching"
         android:textSize="50dp" />
 
 </LinearLayout>
