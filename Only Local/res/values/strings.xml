@@ -6,7 +6,7 @@
     <string name="title_activity_start">Only Local</string>
     <string name="search">Find nearby Farmer\'s Markets!</string>
     <string name="loc">Your location is:</string>
-    <string name="change">Update your location</string>
+    <string name="change">Search different location!</string>
     <string name="title_activity_search">Only Local</string>
     <string name="searchTitle">Search Results:</string>
 

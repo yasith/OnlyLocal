@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+
 import com.androidcamp.teamoverflow.only.local.R;
 
 import android.location.Address;
@@ -28,7 +29,6 @@ public class StartActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_start);
-
 		setLocation();
 	}
 
@@ -77,6 +77,10 @@ public class StartActivity extends Activity {
 		
 		if (addresses.size() > 0) {
 			textLoc = addresses.get(0).getLocality();
+			String statename = addresses.get(0).getAdminArea();
+			String stateabb = abbrevState(statename);
+			textLoc = textLoc + ", " + stateabb;
+			
 			AppData ad = AppData.getInstance();
 			ad.setLocationName(textLoc);
 			ad.setLatitude(latitude);
@@ -84,5 +88,14 @@ public class StartActivity extends Activity {
 		}
 
 		textView.setText(textLoc);
+	}
+	public static String abbrevState(String name)
+	{
+		if (name.equals("California"))
+		{
+			return "CA";
+		}
+		else	
+		return name;
 	}
 }
