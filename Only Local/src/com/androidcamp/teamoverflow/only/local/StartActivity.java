@@ -30,9 +30,14 @@ public class StartActivity extends Activity {
 	}
 
 	public void openActivity(View view) {
-
+		
 		EditText editTextView = (EditText) findViewById(R.id.editText1);
 		textLoc = editTextView.getText().toString();
+		
+		if(textLoc == ""){
+			setLocation();
+		}else{
+		
 		Geocoder placeGeo = new Geocoder(this, Locale.getDefault());
 		try {
 			List<Address> addyList= placeGeo.getFromLocationName(textLoc, 1);
@@ -43,12 +48,12 @@ public class StartActivity extends Activity {
 			ad.setLocationName(textLoc);
 			ad.setLatitude(latitude);
 			ad.setLongitude(longitude);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		
+		}
 		Intent intent = new Intent(this, SearchActivity.class);
 		startActivity(intent);
 	}
