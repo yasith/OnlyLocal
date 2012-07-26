@@ -32,7 +32,9 @@
             android:layout_alignParentLeft="true"
             android:layout_toLeftOf="@+id/searchButton"
             android:ems="10"
-            android:textColorHint="#FFFFFF" />
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:alpha="1" />
     </RelativeLayout>
 
 </FrameLayout>
