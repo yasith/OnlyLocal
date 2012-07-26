@@ -205,18 +205,26 @@ public class PlacesService {
 
         return place;
     }
+   
+    public interface SearchAsyncCallback {
+    	void onSearchCompleted( ArrayList<Place> searchResults );
+    }
     
-    
-	public void searchAsync(String place, double longitude, double latitude) {
+	public void searchAsync(String place, double longitude, double latitude, SearchAsyncCallback sac ) {
 		PlaceSearchRequest psr = new PlaceSearchRequest();
 		psr.latitude = latitude;
 		psr.longitude = longitude;
 		psr.keyword = place;
 		
-		(new SearchTask()).execute(psr);
+		(new SearchTask(sac)).execute(psr);
 	}
     
 	private class SearchTask extends AsyncTask<PlaceSearchRequest, Void, ArrayList<Place> > {
+		final SearchAsyncCallback mSAC;
+		
+		public SearchTask( SearchAsyncCallback sac ) {
+			mSAC = sac;
+		}
 		
 		@Override
 		protected ArrayList<Place> doInBackground(PlaceSearchRequest... args) {
@@ -240,8 +248,7 @@ public class PlacesService {
 		@Override
 		protected void onPostExecute(final ArrayList<Place> result) {
 			Log.d(LOG_TAG, "Finished Loading Place");
-			AppData ad = AppData.getInstance();
-			ad.setResult(result);
+			mSAC.onSearchCompleted(result);
 		}
 	}
 	
