@@ -4,10 +4,11 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_start">Only Local</string>
-    <string name="search">Find nearby Farmer\'s Markets!</string>
+    <string name="search">Find Farmer\'s Markets near you!</string>
     <string name="loc">Your location is:</string>
-    <string name="change">Search different location!</string>
+    <string name="change">Choose a different location!</string>
     <string name="title_activity_search">Only Local</string>
     <string name="searchTitle">Search Results:</string>
+    <string name="topText">You are in:</string>
 
 </resources>

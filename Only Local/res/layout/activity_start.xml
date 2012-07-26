@@ -1,59 +1,31 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ScrollView1"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#99CC00" >
+
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="776dp"
-    android:background="#99CC00" >
-    
-      <Button
-        android:id="@+id/welcomeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textSize="40dp"
-        android:layout_marginTop="50dp"
-        android:onClick="openActivity"  
-        android:background="@drawable/welcome"/>
+    android:background="@drawable/bg" >
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/welcomeButton"
         android:layout_marginTop="93dp"
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="65dp" />
 
-    <Button
-        android:id="@+id/button2"
+    <EditText
+        android:id="@+id/editText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:textSize="40dp"
-        android:layout_marginTop="130dp"
-        android:onClick="openActivity"  
-        android:background="@drawable/near_you"/>
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button2"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="80dp"
-        android:background="@drawable/search_button"
-        android:onClick="updateLocation"
-        android:textSize="40dp" />
+        android:layout_alignRight="@+id/textView2"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>
-</ScrollView>
