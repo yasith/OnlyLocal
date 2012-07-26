@@ -1,5 +1,7 @@
 package com.androidcamp.teamoverflow.only.local;
 
+import java.util.ArrayList;
+
 public class AppData {
 
 	// The singleton instance
@@ -9,6 +11,8 @@ public class AppData {
 	private String mLocationName = null;
 	private double mLongitude;
 	private double mLatitude;
+
+	private ArrayList<Place> mResult;
 	
 	/**
 	 * Returns the AppData instance
@@ -65,5 +69,12 @@ public class AppData {
 	public void setLatitude(double mLatitude) {
 		this.mLatitude = mLatitude;
 	}
+
+	public void setResult(ArrayList<Place> result) {
+		this.mResult = result;
+	}
 	
+	public ArrayList<Place> getResult() {
+		return mResult;
+	}
 }
