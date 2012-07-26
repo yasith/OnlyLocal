@@ -79,6 +79,8 @@ public class StartActivity extends Activity {
 			textLoc = addresses.get(0).getLocality();
 			AppData ad = AppData.getInstance();
 			ad.setLocationName(textLoc);
+			ad.setLatitude(latitude);
+			ad.setLongitude(longitude);
 		}
 
 		textView.setText(textLoc);
