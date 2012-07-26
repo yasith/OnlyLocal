@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
+import android.widget.TextView;
 import android.app.ListActivity;
 
 public class SearchActivity extends ListActivity implements SearchAsyncCallback {
@@ -18,26 +19,19 @@ public class SearchActivity extends ListActivity implements SearchAsyncCallback 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppData ad = AppData.getInstance();
         
         setContentView(R.layout.activity_search);
         
-        double lng = AppData.getInstance().getLongitude();
-        double lat = AppData.getInstance().getLatitude();
-        PlacesService.getInstance().searchAsync("farmers+market", lng, lat,this);
-        
-        
-        ArrayList<Place> marketPlaces = null;
-        
-        // Wait until the marketPlace results are loaded, and parsed
-        // we have to go this way because AsyncTask onPostExecute
-        // is not being called
-//        while(marketPlaces == null){
-//        	//Log.d(TAG, "Waiting for results to load");
-//        	marketPlaces = AppData.getInstance().getResult();
-//        }
-        
-        
-        
+	    if(ad.getFoundLocation()) {
+	        double lng = ad.getLongitude();
+	        double lat = ad.getLatitude();
+	        
+	        PlacesService.getInstance().searchAsync("farmers+market", lng, lat,this);
+        }else {
+        	TextView emptyText = (TextView) findViewById(android.R.id.empty);
+        	emptyText.setText("No Results Found");
+        }
   }
 
 	@Override

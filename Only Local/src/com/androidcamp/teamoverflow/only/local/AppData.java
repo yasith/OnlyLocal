@@ -11,8 +11,10 @@ public class AppData {
 	private String mLocationName = null;
 	private double mLongitude;
 	private double mLatitude;
+	private boolean mFoundLocation = false;
 
 	private ArrayList<Place> mResult;
+	
 	
 	/**
 	 * Returns the AppData instance
@@ -76,5 +78,19 @@ public class AppData {
 	
 	public ArrayList<Place> getResult() {
 		return mResult;
+	}
+
+	/**
+	 * @return the mFoundLocation
+	 */
+	public boolean getFoundLocation() {
+		return mFoundLocation;
+	}
+
+	/**
+	 * @param mFoundLocation the mFoundLocation to set
+	 */
+	public void setFoundLocation(boolean mFoundLocation) {
+		this.mFoundLocation = mFoundLocation;
 	}
 }
