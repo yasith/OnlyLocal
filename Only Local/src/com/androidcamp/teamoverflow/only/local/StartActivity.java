@@ -4,21 +4,18 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-
-import com.androidcamp.teamoverflow.only.local.R;
-
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.EditText;
 
 public class StartActivity extends Activity {
 
@@ -51,7 +48,7 @@ public class StartActivity extends Activity {
 	}
 	
 	private void setLocation() {
-		TextView textView = (TextView) findViewById(R.id.textView2);
+		EditText editTextView = (EditText) findViewById(R.id.editText1);
 
 		LocationManager locationManager = (LocationManager) this
 				.getSystemService(Context.LOCATION_SERVICE);
@@ -87,7 +84,7 @@ public class StartActivity extends Activity {
 			ad.setLongitude(longitude);
 		}
 
-		textView.setText(textLoc);
+		editTextView.setHint(this.getString(R.string.textHint, textLoc));
 	}
 	public static String abbrevState(String name)
 	{
