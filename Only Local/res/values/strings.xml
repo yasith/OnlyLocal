@@ -8,7 +8,7 @@
     <string name="loc">Your location is:</string>
     <string name="change">Choose a different location!</string>
     <string name="title_activity_search">Only Local</string>
-    <string name="searchTitle">Search Results:</string>
+    <string name="searchTitle">Search Results</string>
     <string name="topText">You are in:</string>
     <string name="textHint"> %s</string>
     <string name="searching">Searching ...</string>

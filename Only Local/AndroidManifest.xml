@@ -25,7 +25,8 @@
         </activity>
         <activity
             android:name=".SearchActivity"
-            android:label="@string/searchTitle" >
+            android:label="@string/searchTitle"
+            android:theme="@android:style/Theme.Holo" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.only.local.StartActivity" />
