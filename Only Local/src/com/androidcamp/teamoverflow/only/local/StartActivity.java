@@ -41,13 +41,19 @@ public class StartActivity extends Activity {
 		Geocoder placeGeo = new Geocoder(this, Locale.getDefault());
 		try {
 			List<Address> addyList= placeGeo.getFromLocationName(textLoc, 1);
-			Address addy = addyList.get(0);
-			double longitude = addy.getLongitude();
-			double latitude = addy.getLatitude();
+			
 			AppData ad = AppData.getInstance();
-			ad.setLocationName(textLoc);
-			ad.setLatitude(latitude);
-			ad.setLongitude(longitude);
+			if(addyList.size() > 0){
+				Address addy = addyList.get(0);
+				double longitude = addy.getLongitude();
+				double latitude = addy.getLatitude();
+				ad.setLocationName(textLoc);
+				ad.setLatitude(latitude);
+				ad.setLongitude(longitude);
+				ad.setFoundLocation(true);
+			}
+			ad.setFoundLocation(false);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
