@@ -1,65 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <!-- <Button -->
+    <!-- android:id="@+id/map" -->
+    <!-- android:layout_width="204dp" -->
+    <!-- android:layout_height="140dp" -->
+    <!-- android:layout_alignLeft="@+id/addressField" -->
+    <!-- android:layout_alignRight="@+id/reviewInfo" -->
+    <!-- android:layout_below="@+id/ratingBar1" -->
+    <!-- android:layout_marginTop="41dp" -->
+    <!-- android:text="Map Goes Here" /> -->
+
+    <TextView
+        android:id="@+id/marketName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="TextView"
+        android:textSize="24sp"
+        tools:ignore="HardcodedText" />
+
+    <RatingBar
+        android:id="@+id/ratingBar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/marketName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+
+    <WebView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/addressField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ratingBar1" />
+
     <TextView
         android:id="@+id/reviewInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="86dp"
         android:text="Review Goes Here If Available"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/contactField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/reviewInfo"
+        android:layout_alignLeft="@+id/ratingBar1"
+        android:text="Phone Number Here"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/addressField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/reviewInfo"
-        android:layout_centerVertical="true"
+        android:layout_above="@+id/contactField"
+        android:layout_centerHorizontal="true"
         android:text="Address Here"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/contactField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/addressField"
-        android:layout_below="@+id/addressField"
-        android:layout_marginTop="16dp"
-        android:text="Phone Number Here"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <RatingBar
-        android:id="@+id/ratingBar1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/addressField"
-        android:layout_marginRight="21dp"
-        android:layout_marginTop="38dp" />
-
-<!--     <Button -->
-<!--         android:id="@+id/map" -->
-<!--         android:layout_width="204dp" -->
-<!--         android:layout_height="140dp" -->
-<!--         android:layout_alignLeft="@+id/addressField" -->
-<!--         android:layout_alignRight="@+id/reviewInfo" -->
-<!--         android:layout_below="@+id/ratingBar1" -->
-<!--         android:layout_marginTop="41dp" -->
-<!--         android:text="Map Goes Here" /> -->
-    
-    <WebView android:id="@+id/map"
-      android:layout_width="match_parent"
-      android:layout_height="200dp"
-      android:layout_alignLeft="@+id/addressField"
-      android:layout_alignRight="@+id/reviewInfo"
-      android:layout_below="@+id/ratingBar1"
-      android:layout_marginTop="41dp"
-      /> 
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        tools:ignore="HardcodedText" />
 
 </RelativeLayout>

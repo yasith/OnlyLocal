@@ -35,6 +35,9 @@ public class MarketActivity extends Activity implements GetDetailsCallback {
 		mPlace = place;
 		Log.d(TAG, "Got Details " + place.name);
 
+		TextView nameView = (TextView) findViewById(R.id.marketName);
+		nameView.setText(place.name);
+		
 		TextView addressView = (TextView) findViewById(R.id.addressField);
 		addressView.setText(place.formatted_address);
 
@@ -44,10 +47,10 @@ public class MarketActivity extends Activity implements GetDetailsCallback {
 		RatingBar ratings = (RatingBar) findViewById(R.id.ratingBar1);
 		Log.d(TAG, "Rating is " + place.rating);
 		ratings.setRating(Float.parseFloat(place.rating));
+		// To make the stars untouchable
 		ratings.setOnTouchListener(new OnTouchListener() {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				// TODO Auto-generated method stub
 				return true;
 			}
 		});
