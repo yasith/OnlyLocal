@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.view.View.OnTouchListener;
@@ -17,7 +19,8 @@ public class MarketActivity extends Activity implements GetDetailsCallback{
 	
 	private static final String TAG = "ONLY LOCAL";
 	private Place mPlace;
-
+	private static final String MAP_URL = "http://gmaps-samples.googlecode.com/svn/trunk/articles-android-webmap/simple-android-map.html";
+      
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);	
@@ -56,4 +59,17 @@ public class MarketActivity extends Activity implements GetDetailsCallback{
 		Uri location = Uri.parse("geo:0,0?q=address");
 		Intent mapIntent = new Intent(Intent.ACTION_VIEW, location);	
 	}
+	
+	  /** Sets up the WebView object and loads the URL of the page **/
+	  private void setupWebView(){
+	    final String centerURL = "javascript:centerAt(" +
+	    mPlace.latitude + "," +
+	    mPlace.longitude + ")";
+	    
+	    WebView webView = (WebView) findViewById(R.id.map);
+	    webView.getSettings().setJavaScriptEnabled(true);
+	    //Wait for the page to load then send the location information
+	    webView.setWebViewClient(new WebViewClient());
+	    webView.loadUrl(MAP_URL);
+	  }
 }

@@ -210,6 +210,10 @@ public class PlacesService {
             } catch (JSONException e){
                 	place.rating = "0";
             }
+            JSONObject location = jsonObj.getJSONObject("geometry").getJSONObject("location");
+            place.latitude = location.getString("lat");
+            place.longitude = location.getString("lng");
+            
         } catch (JSONException e) {
             Log.e(LOG_TAG, "Error processing JSON results", e);
         }
@@ -295,6 +299,8 @@ class PlaceSearchRequest {
 }
 
 class Place{
+	public String longitude;
+	public String latitude;
 	String vicinity;
 	String icon;
 	String name;
