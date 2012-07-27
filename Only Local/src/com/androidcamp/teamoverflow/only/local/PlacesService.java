@@ -147,6 +147,7 @@ public class PlacesService {
                 Place place = new Place();
                 place.reference = predsJsonArray.getJSONObject(i).getString("reference");
                 place.name = predsJsonArray.getJSONObject(i).getString("name");
+                place.vicinity = predsJsonArray.getJSONObject(i).getString("vicinity");
                 resultList.add(place);
             }
         } catch (JSONException e) {
@@ -261,6 +262,7 @@ class PlaceSearchRequest {
 }
 
 class Place{
+	public String vicinity;
 	String icon;
 	String name;
 	String formatted_address;
