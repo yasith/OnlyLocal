@@ -15,6 +15,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.app.ListActivity;
@@ -61,25 +62,35 @@ public class SearchActivity extends ListActivity implements SearchAsyncCallback 
 		
 	    List<Map<String, ?>> data = new ArrayList<Map<String, ?>>();
 
-	    String[] from = {"name", "vicinity", "rating"};
-	    int[] to = {R.id.market_name, R.id.market_vicinity, R.id.marketRating};
+	    String[] from = {"name", "vicinity"};
+	    int[] to = {R.id.market_name, R.id.market_vicinity};
 
 		Log.d(TAG, "Loaded " + markets.size() + " results");
 
 		for (int i = 0; i < marketPlaces.size(); i++) {
 			data.add(createRow(marketPlaces.get(i).name, 
-					marketPlaces.get(i).vicinity),
-					marketPlaces.get(i).rating);
+							   marketPlaces.get(i).vicinity)
+					);
 		}
 		
 		Log.d(TAG, "Done adding list items");
 	    SimpleAdapter adapter = new SimpleAdapter(this, data, R.layout.search_item, from, to);
 		this.setListAdapter(adapter); 
 		
+		// Adding star rating to the bar
+		
+		for (int i = 0; i < marketPlaces.size(); i++) {
+			View child = this.getListView().getChildAt(i);
+			if(child != null){
+				RatingBar bar = (RatingBar) child.findViewById(R.id.marketRating);
+				bar.setRating(Float.parseFloat(marketPlaces.get(i).rating));
+			}
+		}
+		
 		Log.d(TAG, "Done setting list adapter");
 	}
 	
-	private Map<String, ?> createRow(String name, String vicinity, float rating) {
+	private Map<String, ?> createRow(String name, String vicinity) {
 		Log.d(TAG, "Adding " + name);
 	    Map<String, String> row = new HashMap<String, String>();
 	    row.put("name", name);
