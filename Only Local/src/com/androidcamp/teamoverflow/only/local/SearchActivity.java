@@ -76,9 +76,10 @@ public class SearchActivity extends ListActivity implements SearchAsyncCallback 
 		Log.d(TAG, "Loaded " + markets.size() + " results");
 
 		for (int i = 0; i < marketPlaces.size(); i++) {
+			String rating = marketPlaces.get(i).rating == "0" ? "Unrated" : "Rating: " + marketPlaces.get(i).rating + "/5";
 			data.add(createRow(marketPlaces.get(i).name, 
 							   marketPlaces.get(i).vicinity,
-							   "Rating: " + marketPlaces.get(i).rating + "/5")
+							   rating)
 					);
 		}
 		

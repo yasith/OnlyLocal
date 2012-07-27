@@ -148,7 +148,11 @@ public class PlacesService {
                 place.reference = predsJsonArray.getJSONObject(i).getString("reference");
                 place.name = predsJsonArray.getJSONObject(i).getString("name");
                 place.vicinity = predsJsonArray.getJSONObject(i).getString("vicinity");
-                place.rating = predsJsonArray.getJSONObject(i).getString("rating");
+                try{
+                	place.rating = predsJsonArray.getJSONObject(i).getString("rating");
+                } catch (JSONException e){
+                	place.rating = "0";
+                }
                 resultList.add(place);
             }
         } catch (JSONException e) {
