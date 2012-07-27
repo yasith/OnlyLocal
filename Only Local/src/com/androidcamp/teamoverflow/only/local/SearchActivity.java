@@ -1,7 +1,9 @@
 package com.androidcamp.teamoverflow.only.local;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.androidcamp.teamoverflow.only.local.PlacesService.SearchAsyncCallback;
 
@@ -13,6 +15,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.app.ListActivity;
 
@@ -55,15 +58,33 @@ public class SearchActivity extends ListActivity implements SearchAsyncCallback 
 	public void onSearchCompleted(ArrayList<Place> marketPlaces) {
 		List<String> markets = new ArrayList<String>();
 		List<String> vicinities = new ArrayList<String>();
+		
+	    List<Map<String, ?>> data = new ArrayList<Map<String, ?>>();
+
+	    String[] from = {"name", "vicinity"};
+	    int[] to = {R.id.market_name, R.id.market_vicinity};
 
 		Log.d(TAG, "Loaded " + markets.size() + " results");
 
 		for (int i = 0; i < marketPlaces.size(); i++) {
-			markets.add(marketPlaces.get(i).name);
+//			markets.add(marketPlaces.get(i).name);
 //			vicinities.add(marketPlaces.get(i).vicinity);
+			data.add(createRow(marketPlaces.get(i).name, marketPlaces.get(i).vicinity));
 		}
-		this.setListAdapter(new ArrayAdapter(this, R.layout.search_item,
-				R.id.market_name, markets));
+		
+		Log.d(TAG, "Done adding list items");
+	    SimpleAdapter adapter = new SimpleAdapter(this, data, R.layout.search_item, from, to);
+		this.setListAdapter(adapter); 
+		
+		Log.d(TAG, "Done setting list adapter");
+	}
+	
+	private Map<String, ?> createRow(String name, String vicinity) {
+		Log.d(TAG, "Adding " + name);
+	    Map<String, String> row = new HashMap<String, String>();
+	    row.put("name", name);
+	    row.put("vicinity", vicinity);
+	    return row;
 	}
 
 }
