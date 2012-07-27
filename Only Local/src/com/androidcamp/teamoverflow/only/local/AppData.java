@@ -12,6 +12,8 @@ public class AppData {
 	private double mLongitude;
 	private double mLatitude;
 	private boolean mFoundLocation = false;
+	
+	private String mSelectedPlaceReference = null;
 
 	private ArrayList<Place> mResult;
 	
@@ -92,5 +94,19 @@ public class AppData {
 	 */
 	public void setFoundLocation(boolean mFoundLocation) {
 		this.mFoundLocation = mFoundLocation;
+	}
+
+	/**
+	 * @return the mSelectedPlaceReference
+	 */
+	public String getSelectedPlaceReference() {
+		return mSelectedPlaceReference;
+	}
+
+	/**
+	 * @param mSelectedPlaceReference the mSelectedPlaceReference to set
+	 */
+	public void setSelectedPlaceReference(String mSelectedPlaceReference) {
+		this.mSelectedPlaceReference = mSelectedPlaceReference;
 	}
 }

@@ -61,15 +61,15 @@ public class SearchActivity extends ListActivity implements SearchAsyncCallback 
 		
 	    List<Map<String, ?>> data = new ArrayList<Map<String, ?>>();
 
-	    String[] from = {"name", "vicinity"};
-	    int[] to = {R.id.market_name, R.id.market_vicinity};
+	    String[] from = {"name", "vicinity", "rating"};
+	    int[] to = {R.id.market_name, R.id.market_vicinity, R.id.marketRating};
 
 		Log.d(TAG, "Loaded " + markets.size() + " results");
 
 		for (int i = 0; i < marketPlaces.size(); i++) {
-//			markets.add(marketPlaces.get(i).name);
-//			vicinities.add(marketPlaces.get(i).vicinity);
-			data.add(createRow(marketPlaces.get(i).name, marketPlaces.get(i).vicinity));
+			data.add(createRow(marketPlaces.get(i).name, 
+					marketPlaces.get(i).vicinity),
+					marketPlaces.get(i).rating);
 		}
 		
 		Log.d(TAG, "Done adding list items");
@@ -79,12 +79,11 @@ public class SearchActivity extends ListActivity implements SearchAsyncCallback 
 		Log.d(TAG, "Done setting list adapter");
 	}
 	
-	private Map<String, ?> createRow(String name, String vicinity) {
+	private Map<String, ?> createRow(String name, String vicinity, float rating) {
 		Log.d(TAG, "Adding " + name);
 	    Map<String, String> row = new HashMap<String, String>();
 	    row.put("name", name);
 	    row.put("vicinity", vicinity);
 	    return row;
 	}
-
 }
