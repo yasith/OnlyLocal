@@ -7,7 +7,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.RatingBar;
 import android.widget.TextView;
+import android.view.View.OnTouchListener;
 
 public class MarketActivity extends Activity implements GetDetailsCallback{
 	
@@ -30,6 +34,21 @@ public class MarketActivity extends Activity implements GetDetailsCallback{
 		
 		TextView addressView = (TextView) findViewById(R.id.addressField); 
 		addressView.setText(place.formatted_address);
+		
+		TextView phoneView = (TextView) findViewById(R.id.contactField);
+		phoneView.setText(place.formatted_phone_number);
+		
+		RatingBar ratings = (RatingBar) findViewById(R.id.ratingBar1);
+		Log.d(TAG, "Rating is " + place.rating);
+		ratings.setRating(Float.parseFloat(place.rating));
+		ratings.setOnTouchListener(new OnTouchListener() {			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// TODO Auto-generated method stub
+				return true;
+			}
+	    });	
+		
 	}
 	
 	public void sendToMaps(){

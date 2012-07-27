@@ -205,6 +205,11 @@ public class PlacesService {
             place.name = jsonObj.getString("name");
             place.formatted_address = jsonObj.getString("formatted_address");
             place.formatted_phone_number = jsonObj.getString("formatted_phone_number");
+            try{
+                	place.rating = jsonObj.getString("rating");
+            } catch (JSONException e){
+                	place.rating = "0";
+            }
         } catch (JSONException e) {
             Log.e(LOG_TAG, "Error processing JSON results", e);
         }
