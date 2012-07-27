@@ -24,6 +24,7 @@ import android.content.Intent;
 public class SearchActivity extends ListActivity implements SearchAsyncCallback {
 
 	private static final String TAG = "ONLY LOCAL";
+	private ArrayList<Place> mMarketPlaces;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,8 @@ public class SearchActivity extends ListActivity implements SearchAsyncCallback 
 				@Override
 				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 					Log.d(TAG, "Position " + position);
-					
+					AppData ad = AppData.getInstance();
+					ad.setSelectedPlaceReference(mMarketPlaces.get(position).reference);
 					openMarketDetails();
 				}
         });	
@@ -65,6 +67,9 @@ public class SearchActivity extends ListActivity implements SearchAsyncCallback 
 
 	@Override
 	public void onSearchCompleted(ArrayList<Place> marketPlaces) {
+		
+		mMarketPlaces = marketPlaces;
+		
 		List<String> markets = new ArrayList<String>();
 		List<String> vicinities = new ArrayList<String>();
 		
