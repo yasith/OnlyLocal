@@ -19,6 +19,7 @@ import android.widget.RatingBar;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.app.ListActivity;
+import android.content.Intent;
 
 public class SearchActivity extends ListActivity implements SearchAsyncCallback {
 
@@ -51,6 +52,10 @@ public class SearchActivity extends ListActivity implements SearchAsyncCallback 
 				@Override
 				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 					Log.d(TAG, "Position " + position);
+					Intent intent = new Intent(getApplicationContext(), MarketActivity.class); //new Intent(this, MarketActivity.class);
+					startActivity(intent);
+					
+					
 				}
         });	
 	}

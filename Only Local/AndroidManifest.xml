@@ -31,6 +31,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.only.local.StartActivity" />
         </activity>
+        <activity android:name=".MarketActivity" />
+        
     </application>
 
 </manifest>
