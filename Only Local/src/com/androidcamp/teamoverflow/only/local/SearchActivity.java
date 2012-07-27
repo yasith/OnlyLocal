@@ -56,7 +56,7 @@ public class SearchActivity extends ListActivity implements SearchAsyncCallback 
 		Log.d(TAG, "Loaded " + markets.size() + " results");
 
 		for (int i = 0; i < marketPlaces.size(); i++) {
-			markets.add(marketPlaces.get(i).name);
+			markets.add(marketPlaces.get(i).name + "\n" + marketPlaces.get(i).vicinity);
 		}
 		this.setListAdapter(new ArrayAdapter(this, R.layout.search_item,
 				R.id.market_name, markets));
