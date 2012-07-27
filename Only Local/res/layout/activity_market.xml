@@ -6,47 +6,51 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/reviewInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="86dp"
+        android:text="Review Goes Here If Available"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/addressField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/reviewInfo"
         android:layout_centerVertical="true"
         android:text="Address Here"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/contactField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
+        android:layout_alignLeft="@+id/addressField"
+        android:layout_below="@+id/addressField"
+        android:layout_marginTop="16dp"
         android:text="Phone Number Here"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="204dp"
-        android:layout_height="140dp"
-        android:layout_above="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="23dp"
-        android:text="Map Goes Here" />
 
     <RatingBar
         android:id="@+id/ratingBar1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView2"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="25dp"
-        android:text="Review Goes Here If Available"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/addressField"
+        android:layout_marginRight="21dp"
+        android:layout_marginTop="38dp" />
+
+    <Button
+        android:id="@+id/map"
+        android:layout_width="204dp"
+        android:layout_height="140dp"
+        android:layout_alignLeft="@+id/addressField"
+        android:layout_alignRight="@+id/reviewInfo"
+        android:layout_below="@+id/ratingBar1"
+        android:layout_marginTop="41dp"
+        android:text="Map Goes Here" />
 
 </RelativeLayout>
