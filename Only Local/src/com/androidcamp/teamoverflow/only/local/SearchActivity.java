@@ -78,7 +78,7 @@ public class SearchActivity extends ListActivity implements SearchAsyncCallback 
 		for (int i = 0; i < marketPlaces.size(); i++) {
 			data.add(createRow(marketPlaces.get(i).name, 
 							   marketPlaces.get(i).vicinity,
-							   marketPlaces.get(i).rating + "/5")
+							   "Rating: " + marketPlaces.get(i).rating + "/5")
 					);
 		}
 		
