@@ -33,7 +33,7 @@
         android:layout_below="@+id/marketName"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp" />
-
+
     <WebView
         android:id="@+id/map"
         android:layout_width="match_parent"
@@ -43,26 +43,25 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/ratingBar1" />
 
-    <TextView
-        android:id="@+id/reviewInfo"
+    <Button
+        android:id="@+id/directionsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Review Goes Here If Available"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        tools:ignore="HardcodedText" />
-
+        android:onClick="getDirections"
+        android:text="Get Direction" />
+
     <TextView
         android:id="@+id/contactField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/reviewInfo"
-        android:layout_alignLeft="@+id/ratingBar1"
+        android:layout_above="@+id/directionsButton"
+        android:layout_centerHorizontal="true"
         android:text="Phone Number Here"
         android:textAppearance="?android:attr/textAppearanceLarge"
         tools:ignore="HardcodedText" />
-
+
     <TextView
         android:id="@+id/addressField"
         android:layout_width="wrap_content"

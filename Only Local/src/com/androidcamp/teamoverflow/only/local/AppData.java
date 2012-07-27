@@ -15,6 +15,9 @@ public class AppData {
 	
 	private String mSelectedPlaceReference = null;
 	
+	private double mLocalLat;
+	private double mLocalLng;
+	
 	/**
 	 * Returns the AppData instance
 	 */
@@ -97,5 +100,33 @@ public class AppData {
 	 */
 	public void setSelectedPlaceReference(String mSelectedPlaceReference) {
 		this.mSelectedPlaceReference = mSelectedPlaceReference;
+	}
+
+	/**
+	 * @return the mLocalLat
+	 */
+	public double getLocalLat() {
+		return mLocalLat;
+	}
+
+	/**
+	 * @param mLocalLat the mLocalLat to set
+	 */
+	public void setLocalLat(double mLocalLat) {
+		this.mLocalLat = mLocalLat;
+	}
+
+	/**
+	 * @return the mLocalLng
+	 */
+	public double getLocalLng() {
+		return mLocalLng;
+	}
+
+	/**
+	 * @param mLocalLng the mLocalLng to set
+	 */
+	public void setLocalLng(double mLocalLng) {
+		this.mLocalLng = mLocalLng;
 	}
 }

@@ -85,4 +85,22 @@ public class MarketActivity extends Activity implements GetDetailsCallback {
 		
 		webView.loadUrl(MAP_URL);
 	}
+	
+	public void getDirections(View view) {
+		
+		double slat, slng;
+		String dlat, dlng;
+		
+		dlat = mPlace.latitude;
+		dlng = mPlace.longitude;
+		
+		slat = AppData.getInstance().getLocalLat();
+		slng = AppData.getInstance().getLocalLng();
+		
+		Intent intent = new Intent(android.content.Intent.ACTION_VIEW, 
+				Uri.parse("http://maps.google.com/maps?saddr=" 
+		+ slat + "," + slng + "&daddr=" + dlat +"," + dlng));
+				startActivity(intent);	
+	}
+	
 }

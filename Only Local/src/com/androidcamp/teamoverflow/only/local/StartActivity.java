@@ -140,6 +140,8 @@ public class StartActivity extends Activity {
 			mLocalLat = latitude;
 			mLocalLng = longitude;
 			mLocalName = textLoc;
+			ad.setLocalLat(latitude);
+			ad.setLocalLng(longitude);
 			Log.d(TAG, "Setting Location to true");
 		}else {
 			ad.setFoundLocation(false);
