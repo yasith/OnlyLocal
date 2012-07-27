@@ -54,8 +54,8 @@
 <!--         android:text="Map Goes Here" /> -->
     
     <WebView android:id="@+id/map"
-      android:layout_width="204dp"
-      android:layout_height="140dp"
+      android:layout_width="match_parent"
+      android:layout_height="200dp"
       android:layout_alignLeft="@+id/addressField"
       android:layout_alignRight="@+id/reviewInfo"
       android:layout_below="@+id/ratingBar1"
