@@ -51,6 +51,7 @@
         android:layout_alignRight="@+id/reviewInfo"
         android:layout_below="@+id/ratingBar1"
         android:layout_marginTop="41dp"
+        android:onClick="sendToMaps"
         android:text="Map Goes Here" />
 
 </RelativeLayout>
