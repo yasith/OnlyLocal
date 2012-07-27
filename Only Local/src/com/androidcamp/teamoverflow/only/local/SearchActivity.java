@@ -52,12 +52,15 @@ public class SearchActivity extends ListActivity implements SearchAsyncCallback 
 				@Override
 				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 					Log.d(TAG, "Position " + position);
-					Intent intent = new Intent(getApplicationContext(), MarketActivity.class); //new Intent(this, MarketActivity.class);
-					startActivity(intent);
 					
-					
+					openMarketDetails();
 				}
         });	
+	}
+	
+	public void openMarketDetails() {
+		Intent intent = new Intent(this, MarketActivity.class);
+		startActivity(intent);
 	}
 
 	@Override
@@ -67,14 +70,15 @@ public class SearchActivity extends ListActivity implements SearchAsyncCallback 
 		
 	    List<Map<String, ?>> data = new ArrayList<Map<String, ?>>();
 
-	    String[] from = {"name", "vicinity"};
-	    int[] to = {R.id.market_name, R.id.market_vicinity};
+	    String[] from = {"name", "vicinity", "rating"};
+	    int[] to = {R.id.market_name, R.id.market_vicinity, R.id.market_rating};
 
 		Log.d(TAG, "Loaded " + markets.size() + " results");
 
 		for (int i = 0; i < marketPlaces.size(); i++) {
 			data.add(createRow(marketPlaces.get(i).name, 
-							   marketPlaces.get(i).vicinity)
+							   marketPlaces.get(i).vicinity,
+							   marketPlaces.get(i).rating + "/5")
 					);
 		}
 		
@@ -82,24 +86,16 @@ public class SearchActivity extends ListActivity implements SearchAsyncCallback 
 	    SimpleAdapter adapter = new SimpleAdapter(this, data, R.layout.search_item, from, to);
 		this.setListAdapter(adapter); 
 		
-		// Adding star rating to the bar
-		
-		for (int i = 0; i < marketPlaces.size(); i++) {
-			View child = this.getListView().getChildAt(i);
-			if(child != null){
-				RatingBar bar = (RatingBar) child.findViewById(R.id.marketRating);
-				bar.setRating(Float.parseFloat(marketPlaces.get(i).rating));
-			}
-		}
 		
 		Log.d(TAG, "Done setting list adapter");
 	}
 	
-	private Map<String, ?> createRow(String name, String vicinity) {
+	private Map<String, ?> createRow(String name, String vicinity, String rating) {
 		Log.d(TAG, "Adding " + name);
 	    Map<String, String> row = new HashMap<String, String>();
 	    row.put("name", name);
 	    row.put("vicinity", vicinity);
+	    row.put("rating", rating);
 	    return row;
 	}
 }

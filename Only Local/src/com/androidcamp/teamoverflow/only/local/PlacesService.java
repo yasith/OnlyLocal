@@ -212,6 +212,10 @@ public class PlacesService {
     	void onSearchCompleted( ArrayList<Place> searchResults );
     }
     
+    public interface GetDetailsCallback {
+    	void onDetailRetrieval(Place place);
+    }
+    
 	public void searchAsync(String place, double longitude, double latitude, SearchAsyncCallback sac ) {
 		PlaceSearchRequest psr = new PlaceSearchRequest();
 		psr.latitude = latitude;
@@ -219,6 +223,10 @@ public class PlacesService {
 		psr.keyword = place;
 		
 		(new SearchTask(sac)).execute(psr);
+	}
+	
+	public void getDetailsAsync(String reference, GetDetailsCallback gdc) {
+		(new DetailsTask(gdc)).execute(reference);
 	}
     
 	private class SearchTask extends AsyncTask<PlaceSearchRequest, Void, ArrayList<Place> > {
@@ -238,12 +246,6 @@ public class PlacesService {
 			
 			Log.d(LOG_TAG, "Returning places list");
 			
-			// onPostExecute is not being called for some reason
-			// therefore set a value in the Singleton for now
-			// Ideally, we should be updating the list view on completion
-			
-			AppData ad = AppData.getInstance();
-			ad.setResult(result);
 			return result;
 		}
 		
@@ -251,6 +253,27 @@ public class PlacesService {
 		protected void onPostExecute(final ArrayList<Place> result) {
 			Log.d(LOG_TAG, "Finished Loading Place");
 			mSAC.onSearchCompleted(result);
+		}
+	}
+	
+	private class DetailsTask extends AsyncTask<String, Void, Place> {
+		final GetDetailsCallback mGDC;
+		
+		public DetailsTask (GetDetailsCallback gdc) {
+			mGDC = gdc;
+		}
+		
+		@Override
+		protected Place doInBackground(String... args) {
+			Log.d(LOG_TAG, "New Thread getting details about the place");
+			
+			return PlacesService.details(args[0]);
+		}
+		
+		@Override
+		protected void onPostExecute(final Place place) {
+			Log.d(LOG_TAG, "Finished getting data");
+			mGDC.onDetailRetrieval(place);
 		}
 	}
 	

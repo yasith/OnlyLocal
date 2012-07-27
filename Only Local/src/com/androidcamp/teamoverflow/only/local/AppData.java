@@ -14,9 +14,6 @@ public class AppData {
 	private boolean mFoundLocation = false;
 	
 	private String mSelectedPlaceReference = null;
-
-	private ArrayList<Place> mResult;
-	
 	
 	/**
 	 * Returns the AppData instance
@@ -72,14 +69,6 @@ public class AppData {
 	 */
 	public void setLatitude(double mLatitude) {
 		this.mLatitude = mLatitude;
-	}
-
-	public void setResult(ArrayList<Place> result) {
-		this.mResult = result;
-	}
-	
-	public ArrayList<Place> getResult() {
-		return mResult;
 	}
 
 	/**
