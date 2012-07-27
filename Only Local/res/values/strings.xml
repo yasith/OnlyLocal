@@ -12,6 +12,6 @@
     <string name="topText">You are in:</string>
     <string name="textHint"> %s</string>
     <string name="searching">Searching ...</string>
-    <string name ="market_name">Market Name</string>
+    <string name ="market_name">Market Details</string>
 
 </resources>
