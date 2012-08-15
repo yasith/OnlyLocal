@@ -1,21 +1,18 @@
-package com.androidcamp.teamoverflow.only.local;
+package com.androidcamp.teamoverflow.onlylocal;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.androidcamp.teamoverflow.only.local.PlacesService.SearchAsyncCallback;
+import com.androidcamp.teamoverflow.onlylocal.PlacesService.SearchAsyncCallback;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.RatingBar;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.app.ListActivity;
@@ -46,20 +43,21 @@ public class SearchActivity extends ListActivity implements SearchAsyncCallback 
 			TextView emptyText = (TextView) findViewById(android.R.id.empty);
 			emptyText.setText("No Results Found");
 		}
-		
-        ListView ls = (ListView)findViewById(android.R.id.list);
-        ls.setOnItemClickListener(new OnItemClickListener() {
 
-				@Override
-				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-					Log.d(TAG, "Position " + position);
-					AppData ad = AppData.getInstance();
-					ad.setSelectedPlaceReference(mMarketPlaces.get(position).reference);
-					openMarketDetails();
-				}
-        });	
+		ListView ls = (ListView) findViewById(android.R.id.list);
+		ls.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				Log.d(TAG, "Position " + position);
+				AppData ad = AppData.getInstance();
+				ad.setSelectedPlaceReference(mMarketPlaces.get(position).reference);
+				openMarketDetails();
+			}
+		});
 	}
-	
+
 	public void openMarketDetails() {
 		Intent intent = new Intent(this, MarketActivity.class);
 		startActivity(intent);
@@ -67,41 +65,39 @@ public class SearchActivity extends ListActivity implements SearchAsyncCallback 
 
 	@Override
 	public void onSearchCompleted(ArrayList<Place> marketPlaces) {
-		
-		mMarketPlaces = marketPlaces;
-		
-		List<String> markets = new ArrayList<String>();
-		List<String> vicinities = new ArrayList<String>();
-		
-	    List<Map<String, ?>> data = new ArrayList<Map<String, ?>>();
 
-	    String[] from = {"name", "vicinity", "rating"};
-	    int[] to = {R.id.market_name, R.id.market_vicinity, R.id.market_rating};
+		mMarketPlaces = marketPlaces;
+
+		List<String> markets = new ArrayList<String>();
+
+		List<Map<String, ?>> data = new ArrayList<Map<String, ?>>();
+
+		String[] from = { "name", "vicinity", "rating" };
+		int[] to = { R.id.market_name, R.id.market_vicinity, R.id.market_rating };
 
 		Log.d(TAG, "Loaded " + markets.size() + " results");
 
 		for (int i = 0; i < marketPlaces.size(); i++) {
-			String rating = marketPlaces.get(i).rating == "0" ? "Unrated" : "Rating: " + marketPlaces.get(i).rating + "/5";
-			data.add(createRow(marketPlaces.get(i).name, 
-							   marketPlaces.get(i).vicinity,
-							   rating)
-					);
+			String rating = marketPlaces.get(i).rating == "0" ? "Unrated"
+					: "Rating: " + marketPlaces.get(i).rating + "/5";
+			data.add(createRow(marketPlaces.get(i).name,
+					marketPlaces.get(i).vicinity, rating));
 		}
-		
+
 		Log.d(TAG, "Done adding list items");
-	    SimpleAdapter adapter = new SimpleAdapter(this, data, R.layout.search_item, from, to);
-		this.setListAdapter(adapter); 
-		
-		
+		SimpleAdapter adapter = new SimpleAdapter(this, data,
+				R.layout.search_item, from, to);
+		this.setListAdapter(adapter);
+
 		Log.d(TAG, "Done setting list adapter");
 	}
-	
+
 	private Map<String, ?> createRow(String name, String vicinity, String rating) {
 		Log.d(TAG, "Adding " + name);
-	    Map<String, String> row = new HashMap<String, String>();
-	    row.put("name", name);
-	    row.put("vicinity", vicinity);
-	    row.put("rating", rating);
-	    return row;
+		Map<String, String> row = new HashMap<String, String>();
+		row.put("name", name);
+		row.put("vicinity", vicinity);
+		row.put("rating", rating);
+		return row;
 	}
 }

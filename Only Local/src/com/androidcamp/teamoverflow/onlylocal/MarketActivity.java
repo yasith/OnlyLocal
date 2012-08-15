@@ -1,6 +1,6 @@
-package com.androidcamp.teamoverflow.only.local;
+package com.androidcamp.teamoverflow.onlylocal;
 
-import com.androidcamp.teamoverflow.only.local.PlacesService.GetDetailsCallback;
+import com.androidcamp.teamoverflow.onlylocal.PlacesService.GetDetailsCallback;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -60,9 +60,8 @@ public class MarketActivity extends Activity implements GetDetailsCallback {
 	}
 
 	public void sendToMaps() {
-		String address = mPlace.formatted_address;
 		Uri location = Uri.parse("geo:0,0?q=address");
-		Intent mapIntent = new Intent(Intent.ACTION_VIEW, location);
+		new Intent(Intent.ACTION_VIEW, location);
 	}
 
 	/** Sets up the WebView object and loads the URL of the page **/
@@ -74,6 +73,7 @@ public class MarketActivity extends Activity implements GetDetailsCallback {
 				+ mPlace.longitude + ")";
 
 		final WebView webView = (WebView) findViewById(R.id.map);
+		
 		webView.getSettings().setJavaScriptEnabled(true);
 		// Wait for the page to load then send the location information
 		webView.setWebViewClient(new WebViewClient() {

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.androidcamp.teamoverflow.only.local"
+    package="com.androidcamp.teamoverflow.onlylocal"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -29,7 +29,7 @@
             android:theme="@android:style/Theme.Holo" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.only.local.StartActivity" />
+                android:value="com.example.onlylocal.StartActivity" />
         </activity>
         <activity android:name=".MarketActivity" 
             android:label="@string/market_name"

@@ -1,6 +1,4 @@
-package com.androidcamp.teamoverflow.only.local;
-
-import java.util.ArrayList;
+package com.androidcamp.teamoverflow.onlylocal;
 
 public class AppData {
 

@@ -1,4 +1,4 @@
-package com.androidcamp.teamoverflow.only.local;
+package com.androidcamp.teamoverflow.onlylocal;
 
 import org.json.JSONArray;
 import org.json.JSONException;

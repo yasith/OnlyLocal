@@ -1,4 +1,4 @@
-package com.androidcamp.teamoverflow.only.local;
+package com.androidcamp.teamoverflow.onlylocal;
 
 import java.io.IOException;
 import java.util.List;
