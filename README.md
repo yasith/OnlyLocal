@@ -8,11 +8,11 @@ It's a simple android application which uses the Google Places API to look for F
 Source Code Repository
 ======================
 
- - Original Repository used while developing the app at Android Camp
-    http://code.google.com/p/overflow-app/source/browse/
+ - Original repository used while developing the app at Android Camp
+    - http://code.google.com/p/overflow-app/source/browse/
 
  - Yasith's github repository (Because he loves to stuff everything into his github)
-    https://github.com/yasithv/OnlyLocal
+    - https://github.com/yasithv/OnlyLocal
 
 
 Legal Stuff
