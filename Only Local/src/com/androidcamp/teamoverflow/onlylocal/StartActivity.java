@@ -31,7 +31,7 @@ public class StartActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		Log.d(TAG, "On Create");
+		Log.i(TAG, "On Create");
 		
 		setContentView(R.layout.activity_start);
 		setLocation();
@@ -40,16 +40,17 @@ public class StartActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		Log.d(TAG, "On Resume");
 		
-		EditText editTextView = (EditText) findViewById(R.id.editText1);
+		Log.i(TAG, "On Resume");
+		
+		EditText editTextView = (EditText) findViewById(R.id.locationText);
 		editTextView.setText("");
 		editTextView.setHint(mLocalName);
 	}
 
 	public void openActivity(View view) {
 		
-		EditText editTextView = (EditText) findViewById(R.id.editText1);
+		EditText editTextView = (EditText) findViewById(R.id.locationText);
 		textLoc = editTextView.getText().toString();
 		
 		if(textLoc.length() == 0){
@@ -100,16 +101,21 @@ public class StartActivity extends Activity {
 		return true;
 	}
 	
+	/*
+	 * Sets the current location in the TextField
+	 */
 	private void setLocation() {
 		
-		EditText editTextView = (EditText) findViewById(R.id.editText1);
+		EditText locationText = (EditText) findViewById(R.id.locationText);
 
 		LocationManager locationManager = (LocationManager) this
 				.getSystemService(Context.LOCATION_SERVICE);
 
-		// Or use GPS_PROVIDER
+		// We just need the rough location, don't need an accurate location
 		String locationProvider = LocationManager.NETWORK_PROVIDER;
 
+		// Finding the location takes time, last known location would be
+		// sufficient for our needs
 		Location lastKnownLocation = 
 				locationManager.getLastKnownLocation(locationProvider);
 
@@ -117,6 +123,7 @@ public class StartActivity extends Activity {
 		double longitude = lastKnownLocation.getLongitude();
 
 		Geocoder gcd = new Geocoder(this, Locale.getDefault());
+		
 		List<Address> addresses = null;
 
 		try {
@@ -125,10 +132,13 @@ public class StartActivity extends Activity {
 			e.printStackTrace();
 		}
 		
+		// Store location information in the singleton, as we need
+		// the information in the future
 		AppData ad = AppData.getInstance();
 		
-		// TODO: Would crash if not connected to a network
-		if (addresses.size() > 0) {
+		// TODO: Would crash if not connected to a network. Temp. fix in place
+		// TODO: Fix the insides of this if block
+		if (addresses != null && addresses.size() > 0) {
 			textLoc = addresses.get(0).getLocality();
 			String statename = addresses.get(0).getAdminArea();
 			String stateabb = stateAbbreviation(statename);
@@ -150,7 +160,7 @@ public class StartActivity extends Activity {
 			Log.d(TAG, "Setting Location to false");
 		}
 
-		editTextView.setHint(this.getString(R.string.textHint, textLoc));
+		locationText.setHint(this.getString(R.string.textHint, textLoc));
 	}
 	
 	/**
