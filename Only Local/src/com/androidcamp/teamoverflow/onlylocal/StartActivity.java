@@ -126,10 +126,12 @@ public class StartActivity extends Activity {
 		}
 		
 		AppData ad = AppData.getInstance();
+		
+		// TODO: Would crash if not connected to a network
 		if (addresses.size() > 0) {
 			textLoc = addresses.get(0).getLocality();
 			String statename = addresses.get(0).getAdminArea();
-			String stateabb = abbrevState(statename);
+			String stateabb = stateAbbreviation(statename);
 			textLoc = textLoc + ", " + stateabb;
 			
 			ad.setLocationName(textLoc);
@@ -151,13 +153,16 @@ public class StartActivity extends Activity {
 		editTextView.setHint(this.getString(R.string.textHint, textLoc));
 	}
 	
-	public static String abbrevState(String name)
-	{
-		if (name.equals("California"))
-		{
+	/**
+	 * Returns the abbreviation for given U.S.A State.
+	 * 
+	 * TODO: Make it work for states other than California
+	 */
+	private String stateAbbreviation(String state) {
+		if (state.toLowerCase().equals("california")) {
 			return "CA";
 		}
-		else	
-		return name;
+		
+		return state;
 	}
 }
